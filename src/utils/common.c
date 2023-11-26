@@ -113,3 +113,15 @@ int GuiDropdownBoxRelative(char *text, int *active, bool editMode, Vector2 posit
     GuiSetStyle(DEFAULT, TEXT_SIZE, fontSize);
     return GuiDropdownBox(bounds, text, active, editMode);
 }
+
+void DrawRectangleRelative(Vector2 position, Vector2 dimensions, PinLocation relativeToWindow, PinLocation relativeToRectangle, Color color) {
+    position = offsetPosByPinLocation(position, (Vector2){GetScreenWidth(), GetScreenHeight()}, relativeToWindow, false);
+    position = offsetPosByPinLocation(position, dimensions, relativeToRectangle, true);
+    DrawRectangle(position.x, position.y, dimensions.x, dimensions.y, color);
+}
+
+void DrawTextureRelativeEx(Texture2D texture, Vector2 position, float rotation, float scale, PinLocation relativeToWindow, PinLocation relativeToRectangle, Color tint) {
+    position = offsetPosByPinLocation(position, (Vector2){GetScreenWidth(), GetScreenHeight()}, relativeToWindow, false);
+    position = offsetPosByPinLocation(position, (Vector2){texture.width * scale, texture.height * scale}, relativeToRectangle, true);
+    DrawTextureEx(texture, position, rotation, scale, tint);
+}

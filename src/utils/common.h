@@ -50,3 +50,7 @@ void DrawTextRelativeEx(Font font, const char *text, Vector2 position, PinLocati
 int GuiButtonRelative(char *text, Vector2 position, Vector2 buttonDimensions, PinLocation relativeToWindow, PinLocation relativeToText, int fontSize);
 
 int GuiDropdownBoxRelative(char *text, int *active, bool editMode, Vector2 position, Vector2 buttonDimensions, PinLocation relativeToWindow, PinLocation relativeToText, int fontSize);
+
+void DrawRectangleRelative(Vector2 position, Vector2 dimensions, PinLocation relativeToWindow, PinLocation relativeToRectangle, Color color);
+
+void DrawTextureRelativeEx(Texture2D texture, Vector2 position, float rotation, float scale, PinLocation relativeToWindow, PinLocation relativeToRectangle, Color tint);
